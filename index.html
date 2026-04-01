@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Isaac Adeuti — Web Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <header class="site-header" role="banner">
+      <nav class="nav" aria-label="Main navigation">
+        <img src="assets/logo.png" alt="Isaac Adeuti">
+        <div class="nav__right">
+          <ul class="nav__links" role="list">
+            <li><a href="#work" class="nav__link">Work</a></li>
+            <li><a href="#about" class="nav__link">About</a></li>
+          </ul>
+          <a href="#contact" class="nav__badge" aria-label="Open to hire">Open to hire</a>
+          <button class="nav__hamburger" id="nav-hamburger" aria-label="Open Menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span class="nav__hamburger-bar"></span>
+            <span class="nav__hamburger-bar"></span>
+            <span class="nav__hamburger-bar"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+     <!-- Mobile nav overlay -->
+    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation" hidden>
+      <nav class="mobile-nav__inner">
+        <ul class="mobile-nav__links" role="list">
+          <li><a href="#work"    class="mobile-nav__link" data-close>Work</a></li>
+          <li><a href="#about"   class="mobile-nav__link" data-close>About</a></li>
+        </ul>
+        <a href="#contact" class="mobile-nav__badge" data-close>Open to hire</a>
+      </nav>
+    </div>
+    
+    <main>
+      <!-- Hero -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero__content">
+          <p class="hero__eyebrow">isaac adeuti</p>
+          <h1 class="hero__heading" id="hero-heading">
+            Mobile and <br/> <em>Website</em>  <br/> Developer
+          </h1>
+          <p class="hero__sub">
+            Building things
+            that feel
+            different.
+          </p>
+        </div>
+        <div class="hero__meta" aria-hidden="true">
+          <span class="hero__scroll-hint">Scroll</span>
+          <address class="hero__location">Toronto,<br />Canada ✦</address>
+        </div>
+      </section>
+
+      <!-- Skills Ticker -->
+      <div class="ticker" aria-label="Skills" role="marquee">
+        <div class="ticker__track" id="ticker-track">
+          <ul class="ticker__list" role="list" aria-hidden="true">
+            <li class="ticker__item"><span class="ticker__dot"></span>React</li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>TypeScript
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>JavaScript
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>Node.js
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>Motion Design
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>Branding
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>Prototyping
+            </li>
+          </ul>
+          
+          <!-- Duplicated for seamless loop — JS will clone if needed -->
+          <ul class="ticker__list" role="list" aria-hidden="true">
+            <li class="ticker__item"><span class="ticker__dot"></span>React</li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>TypeScript
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>JavaScript
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>Node.js
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>Motion Design
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>Branding
+            </li>
+            <li class="ticker__item">
+              <span class="ticker__dot"></span>Prototyping
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Work -->
+      <section class="work" id="work" aria-labelledby="work-heading">
+        <h2 class="sr-only" id="work-heading">Selected Work</h2>
+        <div class="work__grid">
+          <article class="project-card project-card--a">
+            <span class="project-card__num" aria-hidden="true">01</span>
+            <div
+              class="project-card__thumb project-card__thumb--a"
+              aria-hidden="true"
+            >
+              <div class="project-card__shape project-card__shape--1"></div>
+              <div class="project-card__shape project-card__shape--2"></div>
+              <span class="project-card__wordmark">Verd</span>
+            </div>
+            <div class="project-card__info">
+              <h3 class="project-card__title">Verd — Carbon Tracker</h3>
+              <ul class="project-card__tags" role="list">
+                <li class="project-card__tag">Product</li>
+                <li class="project-card__tag">React</li>
+                <li class="project-card__tag">2024</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="project-card project-card--b">
+            <span class="project-card__num" aria-hidden="true">02</span>
+            <div
+              class="project-card__thumb project-card__thumb--b"
+              aria-hidden="true"
+            >
+              <div class="project-card__shape project-card__shape--3"></div>
+              <div class="project-card__shape project-card__shape--4"></div>
+              <span class="project-card__wordmark">Fold</span>
+            </div>
+            <div class="project-card__info">
+              <h3 class="project-card__title">Fold — Finance OS</h3>
+              <ul class="project-card__tags" role="list">
+                <li class="project-card__tag">Design</li>
+                <li class="project-card__tag">iOS</li>
+                <li class="project-card__tag">2023</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- About + Tools -->
+      <section class="about" id="about" aria-labelledby="about-heading">
+        <div class="about__text">
+          <h2 class="about__label" id="about-heading">About</h2>
+          <strong class="about__body">
+            I am a <strong>minimalist developer</strong> and I love to create beautiful,
+            accessible, responsive websites that meet my client's needs. My
+            design centers on performance, responsiveness and user
+            accessibility. My goal is to bridge design and emerging technology
+            and I always look forward to convert <strong>ideas into realities</strong>.
+          </p>
+        </div>
+
+        <div class="tools">
+          <h2 class="about__label">tools and workflows</h2>
+          <ul class="tools__grid" role="list">
+
+            <li class="tools__item">
+              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" />
+              <span class="tools__name">VS Code</span>
+            </li>
+            <li class="tools__item">
+              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" />
+              <span class="tools__name">Android Studio</span>
+            </li>
+            <li class="tools__item">
+              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="CLI" />
+              <span class="tools__name">Command Line</span>
+            </li>
+            <li class="tools__item">
+              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" alt="Illustrator" />
+              <span class="tools__name">Illustrator</span>
+            </li>
+            <li class="tools__item">
+              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" />
+              <span class="tools__name">HTML</span>
+            </li>
+            <li class="tools__item">
+              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
+              <span class="tools__name">CSS</span>
+            </li>
+            <li class="tools__item">
+              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" />
+              <span class="tools__name">Figma</span>
+            </li>
+            <li class="tools__item">
+              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" alt="Flutter" />
+              <span class="tools__name">Flutter</span>
+            </li>
+            <li class="tools__item">
+              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" />
+              <span class="tools__name">Git</span>
+            </li>
+
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact / CTA -->
+      <section class="cta" id="contact" aria-labelledby="cta-heading">
+        <div class="cta__left">
+          <h2 class="cta__heading" id="cta-heading">
+            Got a project?<br />
+            Let's <em>talk.</em>
+          </h2>
+        </div>
+        <div class="cta__right">
+          
+           <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" value="930eaec6-c18b-4c2c-9e18-d3f3ee4e202f" />
+            <div class="contact-form__row">
+              <div class="contact-form__field">
+                <label class="contact-form__label" for="contact-name">Name</label>
+                <input class="contact-form__input" type="text" id="contact-name" name="name" placeholder="Your name" required />
+              </div>
+              <div class="contact-form__field">
+                <label class="contact-form__label" for="contact-email">Email</label>
+                <input class="contact-form__input" type="email" id="contact-email" name="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+            <div class="contact-form__field">
+              <label class="contact-form__label" for="contact-message">Message</label>
+              <textarea class="contact-form__input contact-form__textarea" id="contact-message" name="message" placeholder="Tell me about your project…" required></textarea>
+            </div>
+            <button class="contact-form__btn" type="submit">
+              Send message 
+            </button>
+          </form>
+
+        </div>
+        
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <small class="site-footer__copy">Isaac Adeuti</small>
+      <small class="site-footer__built"></small>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
