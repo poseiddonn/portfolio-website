@@ -15,7 +15,6 @@ import { initTyping } from "./typing.js";
  * Bootstrap application
  */
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("🚀 Portfolio initialising...");
 
   // Desktop cursor (pointer: fine only)
   if (matchMedia("(pointer: fine) and (min-width: 769px)").matches) {
@@ -50,8 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
-  console.log("✅ Portfolio ready");
 });
 
 // skills tab switch
