@@ -842,6 +842,10 @@ header .hero-accent {
   color: var(--text-secondary);
 }
 
+ strong {
+  color: var(--text-primary);
+}
+
 /* Timeline */
 .timeline-line {
   position: relative;
