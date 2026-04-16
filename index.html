@@ -901,6 +901,42 @@
       </div>
     </footer>
 
+    <!-- DevOps Modal -->
+    <div
+      class="devops-modal"
+      id="devops-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-label="DevOps tip"
+      hidden
+    >
+      <div class="devops-modal__backdrop"></div>
+      <div class="devops-modal__box">
+        <button class="devops-modal__close" aria-label="Close">&times;</button>
+        <span class="devops-modal__icon">
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"
+            />
+          </svg>
+        </span>
+        <p class="devops-modal__text">"Always be committing"</p>
+        <div class="devops-modal__progress">
+          <div class="devops-modal__progress-bar" id="devops-modal-bar"></div>
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <script type="module" src="src/scripts/main.js"></script>
   </body>
