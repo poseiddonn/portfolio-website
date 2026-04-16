@@ -3,262 +3,890 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Isaac Adeuti — Web Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500&display=swap"
-      rel="stylesheet"
+    <meta
+      name="description"
+      content="Isaac Adeuti — Web Developer. Bulding things that feels different"
     />
+    <title>Isaac Adeuti — Web Developer</title>
+
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="src/assets/logo/logo.png" />
   </head>
+
   <body>
+    <!-- Custom Cursor (desktop only) -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
     <!-- Navigation -->
-    <header class="site-header" role="banner">
-      <nav class="nav" aria-label="Main navigation">
-        <img src="assets/logo.png" alt="Isaac Adeuti">
-        <div class="nav__right">
-          <ul class="nav__links" role="list">
-            <li><a href="#work" class="nav__link">Work</a></li>
-            <li><a href="#about" class="nav__link">About</a></li>
-          </ul>
-          <a href="#contact" class="nav__badge" aria-label="Open to hire">Open to hire</a>
-          <button class="nav__hamburger" id="nav-hamburger" aria-label="Open Menu" aria-expanded="false" aria-controls="mobile-nav">
-            <span class="nav__hamburger-bar"></span>
-            <span class="nav__hamburger-bar"></span>
-            <span class="nav__hamburger-bar"></span>
-          </button>
-        </div>
-      </nav>
-    </header>
+    <nav role="navigation" aria-label="Main navigation">
+      <a href="#top" class="nav-logo">
+        <img
+          src="src/assets/icons/logo.png"
+          alt="Isaac Adeuti logo"
+          width="32"
+          height="32"
+        />
+        <span>Isaac Adeuti</span>
+      </a>
 
-     <!-- Mobile nav overlay -->
-    <div class="mobile-nav" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation" hidden>
-      <nav class="mobile-nav__inner">
-        <ul class="mobile-nav__links" role="list">
-          <li><a href="#work"    class="mobile-nav__link" data-close>Work</a></li>
-          <li><a href="#about"   class="mobile-nav__link" data-close>About</a></li>
-        </ul>
-        <a href="#contact" class="mobile-nav__badge" data-close>Open to hire</a>
-      </nav>
-    </div>
-    
-    <main>
-      <!-- Hero -->
-      <section class="hero" aria-labelledby="hero-heading">
-        <div class="hero__content">
-          <p class="hero__eyebrow">isaac adeuti</p>
-          <h1 class="hero__heading" id="hero-heading">
-            Mobile and <br/> <em>Website</em>  <br/> Developer
-          </h1>
-          <p class="hero__sub">
-            Building things
-            that feel
-            different.
-          </p>
-        </div>
-        <div class="hero__meta" aria-hidden="true">
-          <span class="hero__scroll-hint">Scroll</span>
-          <address class="hero__location">Toronto,<br />Canada ✦</address>
-        </div>
-      </section>
+      <ul class="nav-links">
+        <li><a href="#work" class="nav-link active">Work</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+      </ul>
 
-      <!-- Skills Ticker -->
-      <div class="ticker" aria-label="Skills" role="marquee">
-        <div class="ticker__track" id="ticker-track">
-          <ul class="ticker__list" role="list" aria-hidden="true">
-            <li class="ticker__item"><span class="ticker__dot"></span>React</li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>TypeScript
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>JavaScript
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>Node.js
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>Motion Design
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>Branding
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>Prototyping
-            </li>
-          </ul>
-          
-          <!-- Duplicated for seamless loop — JS will clone if needed -->
-          <ul class="ticker__list" role="list" aria-hidden="true">
-            <li class="ticker__item"><span class="ticker__dot"></span>React</li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>TypeScript
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>JavaScript
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>Node.js
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>Motion Design
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>Branding
-            </li>
-            <li class="ticker__item">
-              <span class="ticker__dot"></span>Prototyping
-            </li>
-          </ul>
+      <button class="nav-cta btn-primary" id="hire-me-btn">Hire Me</button>
+
+      <!-- Mobile Menu Button -->
+      <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="top" class="hero">
+      <div class="hero-particles"></div>
+
+      <div class="container hero-content">
+        <div class="reveal" data-stagger="1">
+          <p class="hero-tagline">Hi, I'm Isaac!</p>
+        </div>
+
+        <div class="reveal" data-stagger="0">
+          <h1 class="typing-text">Mobile and Web Developer </h1>
+        </div>
+
+        <div class="hero-ctas reveal" data-stagger="2">
+          <a href="#work" class="btn btn-primary">See My Work</a>
+          <a href="{{RESUME_URL}}" download class="btn btn-ghost"
+            >Download CV</a
+          >
+        </div>
+
+        <!-- Scroll Indicator -->
+      </div>
+      <div class="scroll-indicator reveal" data-stagger="4">
+        <span>Scroll to explore</span>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M12 5v10m0 0l-4-4m4 4l4-4"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <!-- Work / Projects Section -->
+    <section id="work" class="projects">
+      <div class="container">
+        <div class="reveal section-header" data-stagger="0">
+          <span class="section-number">01</span>
+          <h2 class="text-scramble">Latest Work</h2>
+        </div>
+
+        <!-- Featured Project -->
+        <div class="project-featured reveal card" data-stagger="1">
+          <img
+            src="/src/assets/images/mockup.png"
+            alt="pccg hymn"
+            class="card__image"
+            loading="lazy"
+            decoding="async"
+            width="1200"
+            height="675"
+          />
+          <div class="card__content">
+            <h3 class="card__title">Hymn App</h3>
+            <p class="card__description">
+              A personal project created to strengthen my mobile development
+              skills by building a clean, intuitive mobile application for
+              reading and organizing hymn lyrics. The app focuses on simplicity,
+              readability, and fast access to a curated bi-lingual library of hymns.
+            </p>
+            <div class="card__tags">
+              <span class="tech-tag">Flutter</span>
+              <span class="tech-tag">Dart</span>
+              <span class="tech-tag">JSON</span>
+            </div>
+            <div class="card__buttons">
+              <!-- <a
+                href="{{PROJECT_1_LIVE}}"
+                class="btn btn-primary"
+                target="_blank"
+              >
+                View Project
+              </a> -->
+
+              <a
+                href="https://github.com/poseiddonn/PCCG.git"
+                class="btn btn-primary"
+                target="_blank"
+                rel="noopener"
+              >
+                View GitHub Repo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Grid -->
+        <div class="grid grid-3">
+          <div class="card reveal" data-category="frontend" data-stagger="3">
+            <img
+              src="/src/assets/images/book.png"
+              alt="api fetch"
+              class="card__image"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="675"
+            />
+            <div class="card__content">
+              <h3 class="card__title">Book Search API</h3>
+              <p class="card__description">
+                A class project focused on building a simple, user-friendly web
+                application that allows readers to search for books by their
+                favorite authors. The goal was to practice core web development
+                skills while creating a clean interface for exploring book
+                information.
+              </p>
+              <div class="card__tags">
+                <span class="tech-tag">TypeScript</span>
+                <span class="tech-tag">HTML</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">RESTful API</span>
+                <span class="tech-tag">Vercel</span>
+              </div>
+              <div class="card__buttons card__buttons--compact">
+                <a
+                  href="https://typescript-api-beta.vercel.app/"
+                  class="btn btn-primary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  view live site
+                </a>
+                <a
+                  href="https://github.com/poseiddonn/typescript-api.git"
+                  class="btn btn-github"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal" data-category="fullstack" data-stagger="4">
+            <img
+              src="/src/assets/images/student.png"
+              alt="student portal"
+              class="card__image"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="675"
+            />
+            <div class="card__content">
+              <h3 class="card__title">Student Service Portal</h3>
+              <p class="card__description">
+                A class project built to create a streamlined student portal
+                that helps users quickly find solutions to common technical
+                issues. The platform focuses on accessibility, clarity, and ease
+                of use, offering students a centralized place to troubleshoot
+                problems and access helpful resources.
+              </p>
+              <div class="card__tags">
+                <span class="tech-tag">Node.js</span>
+                <span class="tech-tag">Express</span>
+                <span class="tech-tag">CSS</span>
+                <span class="tech-tag">ejs</span>
+                <span class="tech-tag">Vercel</span>
+              </div>
+              <div class="card__buttons card__buttons--compact">
+                <a
+                  href="https://wddm-130-project2.vercel.app/"
+                  rel="noopener"
+                  class="btn btn-primary"
+                  target="_blank"
+                >
+                  view live site
+                </a>
+                <a
+                  href="https://github.com/poseiddonn/wddm-130-project2.git"
+                  class="btn btn-github"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal" data-category="design" data-stagger="5">
+            <img
+              src="/src/assets/images/fig.png"
+              alt="figma"
+              class="card__image"
+              loading="lazy"
+              decoding="async"
+              width="1200"
+              height="675"
+            />
+            <div class="card__content">
+              <h3 class="card__title">Responsive Design</h3>
+              <p class="card__description">
+                A class project focused on creating a fully responsive design
+                prototype using Figma. The goal was to explore modern UI/UX
+                principles and demonstrate how a single interface can adapt
+                seamlessly across desktop, tablet, and mobile screen sizes.
+              </p>
+              <div class="card__tags">
+                <span class="tech-tag">Figma</span>
+              </div>
+              <div class="card__buttons card__buttons--compact">
+                <a
+                  href="https://www.figma.com/proto/FQnmxfSuh9hMrGvb45lHq0/Project?node-id=10-66&p=f&t=6Wocnf8QN1boSuHX-1&scaling=contain&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=10%3A66&show-proto-sidebar=1"
+                  class="btn btn-primary"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  view live site
+                </a>
+                <a href="{{PROJECT_4_GITHUB}}" class="btn btn-github">
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <!-- Work -->
-      <section class="work" id="work" aria-labelledby="work-heading">
-        <h2 class="sr-only" id="work-heading">Selected Work</h2>
-        <div class="work__grid">
-          <article class="project-card project-card--a">
-            <span class="project-card__num" aria-hidden="true">01</span>
-            <div
-              class="project-card__thumb project-card__thumb--a"
-              aria-hidden="true"
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="reveal section-header" data-stagger="0">
+          <span class="section-number">02</span>
+          <h2 class="text-scramble">About Me</h2>
+        </div>
+
+        <div class="about-content grid grid-2">
+          <div class="reveal" data-stagger="1">
+            <img
+              src="{{PHOTO_URL}}"
+              alt="{{OWNER_NAME}}"
+              class="about-photo"
+              width="400"
+              height="400"
+            />
+          </div>
+
+          <div class="about-text reveal" data-stagger="2">
+            <p class="text-body">
+              I am a minimalist developer and I love to create beautiful,
+              accessible, responsive websites that meet my client's needs. My
+              design centers on performance, responsiveness and user
+              accessibility. My goal is to bridge design and emerging technology
+              and I always look forward to convert ideas into realities.
+            </p>
+
+            <p class="text-body">
+              Currently, I'm focused on design systems, accessibility, and
+              performance optimisation. I specialise in React, TypeScript, and
+              modern CSS, with a passion for pixel-perfect UI and delightful
+              user experiences. I get genuinely excited when a subtle animation
+              lands perfectly.
+            </p>
+
+            <p class="text-body">
+              Beyond the screen, I'm interested in music, art direction, and the
+              intersection of design and engineering. I believe great work comes
+              from the details.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+      <div class="container">
+        <div class="reveal section-header" data-stagger="0">
+          <span class="section-number">03</span>
+          <h2 class="text-scramble">Skills & Expertise</h2>
+        </div>
+
+        <!-- Skills Category Tabs -->
+        <div class="skills-tabs reveal" data-stagger="1">
+          <button class="skills-tab active" data-tab="frontend">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <div class="project-card__shape project-card__shape--1"></div>
-              <div class="project-card__shape project-card__shape--2"></div>
-              <span class="project-card__wordmark">Verd</span>
-            </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title">Verd — Carbon Tracker</h3>
-              <ul class="project-card__tags" role="list">
-                <li class="project-card__tag">Product</li>
-                <li class="project-card__tag">React</li>
-                <li class="project-card__tag">2024</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="project-card project-card--b">
-            <span class="project-card__num" aria-hidden="true">02</span>
-            <div
-              class="project-card__thumb project-card__thumb--b"
-              aria-hidden="true"
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+            Frontend
+          </button>
+          <button class="skills-tab" data-tab="backend">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <div class="project-card__shape project-card__shape--3"></div>
-              <div class="project-card__shape project-card__shape--4"></div>
-              <span class="project-card__wordmark">Fold</span>
-            </div>
-            <div class="project-card__info">
-              <h3 class="project-card__title">Fold — Finance OS</h3>
-              <ul class="project-card__tags" role="list">
-                <li class="project-card__tag">Design</li>
-                <li class="project-card__tag">iOS</li>
-                <li class="project-card__tag">2023</li>
-              </ul>
-            </div>
-          </article>
+              <ellipse cx="12" cy="5" rx="9" ry="3" />
+              <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+              <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+            </svg>
+            Backend
+          </button>
+          <button class="skills-tab" data-tab="devops">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+            DevOps
+          </button>
+          <button class="skills-tab" data-tab="design">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+              <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+              <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+              <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+              <path
+                d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"
+              />
+            </svg>
+            Design
+          </button>
         </div>
-      </section>
 
-      <!-- About + Tools -->
-      <section class="about" id="about" aria-labelledby="about-heading">
-        <div class="about__text">
-          <h2 class="about__label" id="about-heading">About</h2>
-          <strong class="about__body">
-            I am a <strong>minimalist developer</strong> and I love to create beautiful,
-            accessible, responsive websites that meet my client's needs. My
-            design centers on performance, responsiveness and user
-            accessibility. My goal is to bridge design and emerging technology
-            and I always look forward to convert <strong>ideas into realities</strong>.
-          </p>
-        </div>
-
-        <div class="tools">
-          <h2 class="about__label">tools and workflows</h2>
-          <ul class="tools__grid" role="list">
-
-            <li class="tools__item">
-              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" alt="VS Code" />
-              <span class="tools__name">VS Code</span>
-            </li>
-            <li class="tools__item">
-              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/androidstudio/androidstudio-original.svg" alt="Android Studio" />
-              <span class="tools__name">Android Studio</span>
-            </li>
-            <li class="tools__item">
-              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="CLI" />
-              <span class="tools__name">Command Line</span>
-            </li>
-            <li class="tools__item">
-              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg" alt="Illustrator" />
-              <span class="tools__name">Illustrator</span>
-            </li>
-            <li class="tools__item">
-              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" />
-              <span class="tools__name">HTML</span>
-            </li>
-            <li class="tools__item">
-              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" />
-              <span class="tools__name">CSS</span>
-            </li>
-            <li class="tools__item">
-              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" />
-              <span class="tools__name">Figma</span>
-            </li>
-            <li class="tools__item">
-              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg" alt="Flutter" />
-              <span class="tools__name">Flutter</span>
-            </li>
-            <li class="tools__item">
-              <img class="tools__icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" />
-              <span class="tools__name">Git</span>
-            </li>
-
-          </ul>
-        </div>
-      </section>
-
-      <!-- Contact / CTA -->
-      <section class="cta" id="contact" aria-labelledby="cta-heading">
-        <div class="cta__left">
-          <h2 class="cta__heading" id="cta-heading">
-            Got a project?<br />
-            Let's <em>talk.</em>
-          </h2>
-        </div>
-        <div class="cta__right">
-          
-           <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-            <input type="hidden" name="access_key" value="930eaec6-c18b-4c2c-9e18-d3f3ee4e202f" />
-            <div class="contact-form__row">
-              <div class="contact-form__field">
-                <label class="contact-form__label" for="contact-name">Name</label>
-                <input class="contact-form__input" type="text" id="contact-name" name="name" placeholder="Your name" required />
-              </div>
-              <div class="contact-form__field">
-                <label class="contact-form__label" for="contact-email">Email</label>
-                <input class="contact-form__input" type="email" id="contact-email" name="email" placeholder="your@email.com" required />
+        <!-- Frontend Skills Panel -->
+        <div class="skills-panel active" data-panel="frontend">
+          <div class="skills-cards-grid">
+            <div class="skill-card" data-stagger="1">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">HTML5</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                  alt="HTML5"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
             </div>
-            <div class="contact-form__field">
-              <label class="contact-form__label" for="contact-message">Message</label>
-              <textarea class="contact-form__input contact-form__textarea" id="contact-message" name="message" placeholder="Tell me about your project…" required></textarea>
+            <div class="skill-card" data-stagger="2">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">CSS3</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                  alt="CSS3"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
-            <button class="contact-form__btn" type="submit">
-              Send message 
-            </button>
-          </form>
-
+            <div class="skill-card" data-stagger="3">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">JavaScript</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="4">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">React.js</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+                  alt="React"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="5">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">TypeScript</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                  alt="TypeScript"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="6">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Flutter</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg"
+                  alt="Flutter"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+          </div>
         </div>
-        
-      </section>
-    </main>
 
-    <footer class="site-footer" role="contentinfo">
-      <small class="site-footer__copy">Isaac Adeuti</small>
-      <small class="site-footer__built"></small>
+        <!-- Backend Skills Panel -->
+        <div class="skills-panel" data-panel="backend">
+          <div class="skills-cards-grid">
+            <div class="skill-card" data-stagger="1">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Express</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+                  alt="Express"
+                  width="40"
+                  height="40"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+
+            <div class="skill-card" data-stagger="2">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Node.js</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                  alt="Node.js"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="3">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">MongoDB</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg"
+                  alt="MongoDB"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="4">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">WordPress</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg"
+                  alt="MongoDB"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="5">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">REST APIs</span>
+              <div class="skill-card__icon">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  />
+                  <path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DevOps & Tools Panel -->
+        <div class="skills-panel" data-panel="devops">
+          <div class="skills-cards-grid">
+            <div class="skill-card" data-stagger="1">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Git</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                  alt="Git"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="1">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">GitHub</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"
+                  alt="GitHub"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="2">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Next.js</span>
+              <div class="skill-card__icon">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="var(--text-primary)"
+                >
+                  <path
+                    d="M11.572 0c-.176 0-.31.001-.358.007a19.76 19.76 0 0 1-.364.033C7.443.346 4.25 2.185 2.228 5.012a11.875 11.875 0 0 0-2.119 5.243c-.096.659-.108.854-.108 1.747s.012 1.089.108 1.748c.652 4.506 3.86 8.292 8.209 9.695.779.25 1.6.422 2.534.525.363.04 1.935.04 2.299 0 1.611-.178 2.977-.577 4.323-1.264.207-.106.247-.134.219-.158-.02-.013-.9-1.193-1.955-2.62l-1.919-2.592-2.404-3.558a338.739 338.739 0 0 0-2.422-3.556c-.009-.002-.018 1.579-.023 3.51-.007 3.38-.01 3.515-.052 3.595a.426.426 0 0 1-.206.214c-.075.037-.14.044-.495.044H7.81l-.108-.068a.438.438 0 0 1-.157-.171l-.05-.106.006-4.703.007-4.705.072-.092a.645.645 0 0 1 .174-.143c.096-.047.134-.051.54-.051.478 0 .558.018.682.154.035.038 1.337 1.999 2.895 4.361a10760.433 10760.433 0 0 0 4.735 7.17l1.9 2.879.096-.063a12.317 12.317 0 0 0 2.466-2.163 11.944 11.944 0 0 0 2.824-6.134c.096-.66.108-.854.108-1.748 0-.893-.012-1.088-.108-1.747-.652-4.506-3.859-8.292-8.208-9.695a12.597 12.597 0 0 0-2.499-.523A33.119 33.119 0 0 0 11.573 0zm4.069 7.217c.347 0 .408.005.486.047a.473.473 0 0 1 .237.277c.018.06.023 1.365.018 4.304l-.006 4.218-.744-1.14-.746-1.14v-3.066c0-1.982.01-3.097.023-3.15a.478.478 0 0 1 .233-.296c.096-.05.13-.054.499-.054z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div class="skill-card" data-stagger="3">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Vercel</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg"
+                  alt="Vercel"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="4">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">VS Code</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                  alt="VS Code"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="5">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Terminal</span>
+              <div class="skill-card__icon">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="4 17 10 11 4 5" />
+                  <line x1="12" y1="19" x2="20" y2="19" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design Skills Panel -->
+        <div class="skills-panel" data-panel="design">
+          <div class="skills-cards-grid">
+            <div class="skill-card" data-stagger="1">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Figma</span>
+              <div class="skill-card__icon">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"
+                  alt="Figma"
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="2">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">UI / UX</span>
+              <div class="skill-card__icon">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M3 9h18" />
+                  <path d="M9 21V9" />
+                </svg>
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="3">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Prototyping</span>
+              <div class="skill-card__icon">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M12 20h9" />
+                  <path
+                    d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                  />
+                </svg>
+              </div>
+            </div>
+            <div class="skill-card" data-stagger="4">
+              <span class="corner-tr"></span><span class="corner-bl"></span>
+              <span class="skill-card__name">Design Systems</span>
+              <div class="skill-card__icon">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="reveal section-header" data-stagger="0">
+          <span class="section-number">04</span>
+          <h2 class="typing-text">Let's Build Together</h2>
+        </div>
+
+        <div class="contact-content grid grid-2">
+          <div class="contact-info reveal" data-stagger="1">
+            <div class="info-block">
+              <h3>Get In Touch</h3>
+              <p>
+                I'm always open to interesting projects and collaboration
+                opportunities.
+              </p>
+              <p>
+                <strong>Based in:</strong><br />
+                Toronto, ON · EST
+              </p>
+              <p>
+                <strong>Availability:</strong><br />
+                Available for remote work and contract projects.
+              </p>
+            </div>
+          </div>
+
+          <div class="contact-form reveal" data-stagger="2">
+            <form data-form="contact">
+              <div class="field">
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  class="field__input"
+                  placeholder=" "
+                  required
+                />
+                <label for="name" class="field__label">Your Name</label>
+              </div>
+
+              <div class="field">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  class="field__input"
+                  placeholder=" "
+                  required
+                />
+                <label for="email" class="field__label">Email Address</label>
+              </div>
+
+              <div class="field">
+                <select
+                  name="project_type"
+                  id="project_type"
+                  class="field__input"
+                  required
+                  aria-label="Project type"
+                >
+                  <option value="">— Select project type —</option>
+                  <option value="website">Website Design</option>
+                  <option value="app">Web Application</option>
+                  <option value="fullstack">Full-Stack Project</option>
+                  <option value="consultation">Consultation</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <textarea
+                  name="message"
+                  id="message"
+                  class="field__input"
+                  placeholder=" "
+                  rows="6"
+                  required
+                ></textarea>
+                <label for="message" class="field__label"
+                  >Tell me about your project...</label
+                >
+              </div>
+
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <small>Isaac Adeuti</small>
+      <small>&copy; <span id="year"></span> All rights reserved</small>
+      <div class="footer-social">
+        <a
+          href="https://github.com/poseiddonn"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+            />
+          </svg>
+        </a>
+        <a
+          href="www.linkedin.com/in/isaac-adeuti"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+            />
+          </svg>
+        </a>
+      </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Scripts -->
+    <script type="module" src="src/scripts/main.js"></script>
   </body>
 </html>
