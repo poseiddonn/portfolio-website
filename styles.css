@@ -624,7 +624,7 @@ nav.scrolled {
 }
 
 /* Blue accent on typing text once loaded (the last word effect) */
-header .hero-accent {
+.typing-highlight {
   color: var(--brand-bright);
 }
 

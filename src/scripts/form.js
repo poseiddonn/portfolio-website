@@ -36,48 +36,49 @@ export function initForm() {
     }
 
     try {
-      // Fallback: Show success message and open email client
-      // Replace with your actual form endpoint when ready (Formspree, Netlify Forms, etc.)
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "930eaec6-c18b-4c2c-9e18-d3f3ee4e202f",
+          name,
+          email,
+          message,
+        }),
+      });
 
-      if (submitBtn) {
-        submitBtn.textContent = "Sent ✓";
+      const result = await response.json();
+
+      if (result.success) {
+        if (submitBtn) submitBtn.textContent = "Sent ✓";
+
+        const successMessage = document.createElement("div");
+        successMessage.style.cssText = `
+      background: var(--brand-primary-dim);
+      color: var(--brand-primary);
+      padding: var(--space-4);
+      border-radius: 4px;
+      margin-top: var(--space-4);
+      text-align: center;
+      font-weight: 600;
+    `;
+        successMessage.textContent = "Thank you! I'll be in touch soon.";
+        form.appendChild(successMessage);
+
+        setTimeout(() => {
+          form.reset();
+          successMessage.remove();
+          if (submitBtn) {
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+          }
+        }, 3000);
+      } else {
+        throw new Error(result.message);
       }
-
-      // Show success message
-      const successMessage = document.createElement("div");
-      successMessage.style.cssText = `
-        background: var(--brand-primary-dim);
-        color: var(--brand-primary);
-        padding: var(--space-4);
-        border-radius: 4px;
-        margin-top: var(--space-4);
-        text-align: center;
-        font-weight: 600;
-      `;
-      successMessage.textContent =
-        "Thank you! Your message has been prepared. Please send it via email.";
-
-      form.appendChild(successMessage);
-
-      // Open email client with pre-filled data
-      const subject = encodeURIComponent("Contact from portfolio");
-      const body = encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      );
-      window.location.href = `mailto:your-email@example.com?subject=${subject}&body=${body}`;
-
-      // Reset form after delay
-      setTimeout(() => {
-        form.reset();
-        successMessage.remove();
-        if (submitBtn) {
-          submitBtn.textContent = originalBtnText;
-          submitBtn.disabled = false;
-        }
-      }, 3000);
     } catch (error) {
       console.error("Form error:", error);
-      alert("Error preparing message. Please try again.");
+      alert("Something went wrong. Please try again.");
       if (submitBtn) {
         submitBtn.textContent = originalBtnText;
         submitBtn.disabled = false;

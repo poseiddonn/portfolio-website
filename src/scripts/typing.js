@@ -5,7 +5,7 @@
 
 export function initTyping(selector, options = {}) {
   const {
-    speed = 200, // ms per character on desktop
+    speed = 130, // ms per character on desktop
     pause = 200, // ms pause after typing completes
     onComplete = null,
   } = options;
@@ -21,14 +21,48 @@ export function initTyping(selector, options = {}) {
 
         const el = entry.target;
         const fullText = el.dataset.typingText;
+        const highlight = el.dataset.typingHighlight || "";
 
         // Clear and start typing
         el.textContent = "";
         let index = 0;
 
+        // Pre-calculate where the highlight word starts and ends
+        const hlStart = highlight ? fullText.indexOf(highlight) : -1;
+        const hlEnd = hlStart >= 0 ? hlStart + highlight.length : -1;
+
+        // We'll build three text nodes / one span:
+        //   [beforeNode] [hlSpan] [afterNode]
+        // They are added to the DOM up-front so we can append chars into them.
+        let beforeNode = null;
+        let hlSpan = null;
+        let afterNode = null;
+
+        if (hlStart >= 0) {
+          beforeNode = document.createTextNode("");
+          hlSpan = document.createElement("span");
+          hlSpan.className = "typing-highlight";
+          afterNode = document.createTextNode("");
+          el.appendChild(beforeNode);
+          el.appendChild(hlSpan);
+          el.appendChild(afterNode);
+        }
+
         function type() {
           if (index < fullText.length) {
-            el.appendChild(document.createTextNode(fullText[index]));
+            const char = fullText[index];
+
+            if (hlStart < 0) {
+              // No highlight — plain text node strategy
+              el.appendChild(document.createTextNode(char));
+            } else if (index < hlStart) {
+              beforeNode.textContent += char;
+            } else if (index < hlEnd) {
+              hlSpan.textContent += char;
+            } else {
+              afterNode.textContent += char;
+            }
+
             index++;
             setTimeout(type, charSpeed);
           } else {
