@@ -8,6 +8,7 @@ export function initNav() {
   const sections = document.querySelectorAll("section[id]");
   const navToggle = document.querySelector(".nav-toggle");
   const navLinksContainer = document.querySelector(".nav-links");
+  const navBackdrop = document.querySelector(".nav-backdrop");
 
   if (!nav) return;
 
@@ -54,13 +55,22 @@ export function initNav() {
         if (target) {
           target.scrollIntoView({ behavior: "smooth" });
           // Close mobile menu if open
-          if (navLinksContainer) {
-            navLinksContainer.classList.remove("open");
-          }
+          if (navLinksContainer) closeMenu();
         }
       }
     });
   });
+
+  /**
+   * Shared helper — close the mobile menu from anywhere
+   */
+  function closeMenu() {
+    navLinksContainer.classList.remove("open");
+    navToggle.classList.remove("open");
+    navBackdrop?.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
 
   /**
    * Mobile menu toggle
@@ -68,23 +78,14 @@ export function initNav() {
   if (navToggle && navLinksContainer) {
     navToggle.addEventListener("click", () => {
       const isOpen = navLinksContainer.classList.toggle("open");
+      navToggle.classList.toggle("open", isOpen);
+      navBackdrop?.classList.toggle("open", isOpen);
       navToggle.setAttribute("aria-expanded", isOpen);
-
-      // Prevent body scroll when menu is open
       document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
-    // Close menu when clicking outside
-    document.addEventListener("click", (e) => {
-      if (
-        !nav.contains(e.target) &&
-        navLinksContainer.classList.contains("open")
-      ) {
-        navLinksContainer.classList.remove("open");
-        navToggle.setAttribute("aria-expanded", "false");
-        document.body.style.overflow = "";
-      }
-    });
+    // Close menu when clicking the backdrop
+    navBackdrop?.addEventListener("click", closeMenu);
   }
 
   /**

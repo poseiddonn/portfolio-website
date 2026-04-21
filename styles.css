@@ -158,21 +158,33 @@ button {
 nav {
   position: fixed;
   inset: 0 0 auto 0;
-  z-index: 100;
+  z-index: 9000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-5) var(--space-8);
   transition:
     background var(--t-slow),
-    backdrop-filter var(--t-slow),
     border-bottom var(--t-slow);
 }
-nav.scrolled {
+
+/* Blur is on a pseudo-element — keeps the visual effect while NOT creating
+   a containing block that would trap position:fixed children (nav-links). */
+nav::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
   background: rgba(7, 9, 16, 0.88);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transition: opacity var(--t-slow);
+  pointer-events: none;
+}
+nav.scrolled::before {
+  opacity: 1;
 }
 
 .nav-logo {
@@ -294,6 +306,22 @@ nav.scrolled {
   background: var(--text-primary);
   border-radius: 2px;
   transition: all var(--t-med);
+}
+
+/* Full-screen backdrop behind the mobile drawer */
+.nav-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 9, 16, 0.6);
+  z-index: 9050; /* above page content, below the drawer */
+  opacity: 0;
+  transition: opacity var(--t-med);
+  pointer-events: none;
+}
+.nav-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ── Scroll Reveal ────────────────────────────────────── */
@@ -1353,7 +1381,7 @@ footer {
     gap: var(--space-8);
     transform: translateX(100%);
     transition: transform var(--t-med);
-    z-index: 200;
+    z-index: 9100;
     border-left: 1px solid var(--border);
   }
   .nav-links.open {
@@ -1365,8 +1393,25 @@ footer {
 
   .nav-toggle {
     display: flex;
-    z-index: 300;
+    z-index: 9200;
   }
+
+  .nav-backdrop {
+    display: block; /* JS controls opacity + pointer-events via .open */
+  }
+
+  /* Hamburger → ✕ animation */
+  .nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
   .nav-cta {
     display: none;
   }
