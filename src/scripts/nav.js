@@ -8,7 +8,6 @@ export function initNav() {
   const sections = document.querySelectorAll("section[id]");
   const navToggle = document.querySelector(".nav-toggle");
   const navLinksContainer = document.querySelector(".nav-links");
-  const navBackdrop = document.querySelector(".nav-backdrop");
 
   if (!nav) return;
 
@@ -53,9 +52,9 @@ export function initNav() {
         e.preventDefault();
         const target = document.querySelector(href);
         if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-          // Close mobile menu if open
+          // Close first so body overflow is restored, THEN scroll
           if (navLinksContainer) closeMenu();
+          target.scrollIntoView({ behavior: "smooth" });
         }
       }
     });
@@ -67,7 +66,6 @@ export function initNav() {
   function closeMenu() {
     navLinksContainer.classList.remove("open");
     navToggle.classList.remove("open");
-    navBackdrop?.classList.remove("open");
     navToggle.setAttribute("aria-expanded", "false");
     document.body.style.overflow = "";
   }
@@ -78,14 +76,23 @@ export function initNav() {
   if (navToggle && navLinksContainer) {
     navToggle.addEventListener("click", () => {
       const isOpen = navLinksContainer.classList.toggle("open");
+      // Mirror the open state on the button so CSS can animate to ✕
       navToggle.classList.toggle("open", isOpen);
-      navBackdrop?.classList.toggle("open", isOpen);
       navToggle.setAttribute("aria-expanded", isOpen);
+
+      // Lock / unlock body scroll
       document.body.style.overflow = isOpen ? "hidden" : "";
     });
 
-    // Close menu when clicking the backdrop
-    navBackdrop?.addEventListener("click", closeMenu);
+    // Close menu when clicking outside the nav
+    document.addEventListener("click", (e) => {
+      if (
+        !nav.contains(e.target) &&
+        navLinksContainer.classList.contains("open")
+      ) {
+        closeMenu();
+      }
+    });
   }
 
   /**
