@@ -1203,7 +1203,7 @@ footer {
 /* Back to top */
 .back-to-top {
   position: fixed;
-  bottom: var(--space-8);
+  bottom: 5rem;
   right: var(--space-8);
   z-index: 50;
   width: 44px;
