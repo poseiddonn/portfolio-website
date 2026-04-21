@@ -25,15 +25,14 @@ export function initTyping(selector, options = {}) {
 
         // Clear and start typing
         el.textContent = "";
+        el.style.visibilty = 'visible';
         let index = 0;
 
         // Pre-calculate where the highlight word starts and ends
         const hlStart = highlight ? fullText.indexOf(highlight) : -1;
         const hlEnd = hlStart >= 0 ? hlStart + highlight.length : -1;
 
-        // We'll build three text nodes / one span:
-        //   [beforeNode] [hlSpan] [afterNode]
-        // They are added to the DOM up-front so we can append chars into them.
+        // building three text nodes / one span:
         let beforeNode = null;
         let hlSpan = null;
         let afterNode = null;
@@ -88,8 +87,8 @@ export function initTyping(selector, options = {}) {
 
   elements.forEach((el) => {
     // Stash the text and clear the element — stays blank until scrolled into view
-    el.dataset.typingText = el.textContent;
-    el.textContent = "";
+    el.dataset.typingText = el.textContent.trim();
+    el.textContent = "hidden";
     observer.observe(el);
   });
 }
